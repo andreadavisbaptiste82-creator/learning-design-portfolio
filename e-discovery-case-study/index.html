@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Discovery Essentials | Case Study | Andrea Davis-Baptiste</title>
+  <meta name="description" content="Case study: a five-minute Rise 360 microlesson that teaches new document reviewers to apply review instructions and flag unclear documents." />
+  <link rel="canonical" href="https://andreadavisbaptiste82-creator.github.io/learning-design-portfolio/e-discovery-case-study/" />
+  <link rel="icon" type="image/png" href="https://andreadavisbaptiste82-creator.github.io/assets/Andrea_Headshot_Favicon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="E-Discovery Essentials | Learning Design Case Study" />
+  <meta property="og:description" content="How I designed a five-minute microlesson on a new reviewer's first relevance decision." />
+  <meta property="og:url" content="https://andreadavisbaptiste82-creator.github.io/learning-design-portfolio/e-discovery-case-study/" />
+  <meta property="og:image" content="https://andreadavisbaptiste82-creator.github.io/learning-design-portfolio/e-discovery-case-study/assets/thumbnail.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* Colors and type match the main portfolio (andreadavisbaptiste82-creator.github.io) */
+    :root{
+      --bg-main:#F5F2EA; --bg-raised:#FFFDF8; --bg-panel:#EAE3D7;
+      --text-main:#1D2732; --text-soft:#55616D; --text-muted:#6E7780;
+      --border:#D2C8B7; --border-hover:#A99A83;
+      --navy:#233B5D; --navy-deep:#17283F; --slate:#526A89;
+      --gold:#9A743A; --champagne:#C8A96B; --champagne-dark:#8B672F; --warm-white:#FFFDF8;
+      --display:'Newsreader',Georgia,serif; --body:'IBM Plex Sans',-apple-system,"Segoe UI",sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg-main);color:var(--text-main);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--navy-deep);outline-offset:3px}
+    .container{width:min(1160px,calc(100% - 80px));margin:auto}
+    .skip{position:fixed;top:10px;left:12px;z-index:100;transform:translateY(-160%);padding:10px 14px;border:1px solid var(--navy);border-radius:4px;background:var(--bg-main);font-family:var(--mono);font-size:12px}.skip:focus{transform:none}
+    h1,h2,h3,h4{font-family:var(--display);font-weight:500;letter-spacing:-.01em;color:var(--text-main);margin:0}
+    .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0 0 14px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.96);border-bottom:1px solid var(--border);box-shadow:0 8px 28px rgba(23,40,63,.06)}
+    header .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--text-main)}
+    .brand img{height:36px;width:auto}.brand span{color:var(--gold)}
+    nav{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+    nav a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--text-soft)}
+    nav a:hover{color:var(--navy)}
+    nav a.main-link{background:var(--navy);color:var(--warm-white);padding:9px 14px;border-radius:3px}nav a.main-link:hover{background:var(--navy-deep)}
+
+    /* Buttons */
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:12px 20px;border-radius:3px;background:var(--navy);color:var(--warm-white);border:1px solid var(--navy);transition:background .2s,color .2s,border-color .2s}
+    .btn:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+    .btn.ghost{background:transparent;color:var(--text-main);border-color:var(--border-hover)}
+    .btn.ghost:hover{background:var(--navy);color:var(--warm-white);border-color:var(--navy)}
+
+    /* Hero (dark navy, champagne accents — same treatment as main site) */
+    .hero{background:var(--navy-deep);color:var(--warm-white);padding:88px 0 80px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+    .hero .eyebrow{color:var(--champagne)}
+    .hero h1{color:var(--warm-white);font-size:clamp(2.5rem,5.4vw,4.4rem);line-height:1.08;margin:6px 0 22px}
+    .hero h1 em{font-style:italic;color:var(--champagne)}
+    .hero p{font-size:1.08rem;color:rgba(255,253,248,.78);max-width:620px;margin:0}
+    .hero .btn{background:var(--champagne);border-color:var(--champagne);color:var(--navy-deep)}
+    .hero .btn:hover{background:#E5D5B2;border-color:#E5D5B2}
+    .hero .btn.ghost{background:rgba(255,253,248,.06);color:var(--warm-white);border-color:rgba(229,213,178,.7)}
+    .hero .btn.ghost:hover{background:var(--champagne);color:var(--navy-deep);border-color:var(--champagne)}
+    .hero-art{position:relative;min-height:340px}
+    .mock{position:absolute;inset:20px 8px 15px 8px;background:var(--bg-raised);border:1px solid rgba(200,169,107,.62);border-radius:5px;padding:18px;transform:rotate(2.5deg);box-shadow:0 24px 50px -24px rgba(0,0,0,.65)}
+    .mock-top{background:var(--navy);border-radius:3px;color:var(--warm-white);padding:13px 15px;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}
+    .mock-body{display:grid;grid-template-columns:96px 1fr;gap:13px;padding:18px 0 0}
+    .mock-side{background:var(--bg-panel);border-radius:3px;padding:14px 8px}
+    .bar{height:8px;border-radius:20px;background:var(--border);margin:11px 0}.bar.short{width:65%}.bar.active{background:var(--champagne)}
+    .mock-main{display:flex;flex-direction:column;gap:13px}
+    .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+    .tile{border-radius:3px;background:var(--bg-main);border:1px solid var(--border);padding:11px 9px}
+    .tile b{font-family:var(--display);font-weight:500;font-size:1.45rem;display:block;color:var(--navy);line-height:1.1}
+    .tile small{font-family:var(--mono);font-size:.56rem;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted)}
+    .rows{border-radius:3px;border:1px solid var(--border);padding:8px 12px}
+    .task{height:27px;border-bottom:1px solid var(--bg-panel);display:flex;align-items:center;justify-content:space-between;gap:9px}.task:last-child{border-bottom:0}
+    .task:before{content:"";height:7px;background:#CFC4B1;width:53%;border-radius:8px}.task:after{content:"";height:14px;background:#EFE6D3;width:23%;border-radius:20px}
+    .float{position:absolute;left:-22px;bottom:6px;background:var(--bg-raised);border:1px solid var(--champagne);border-left:4px solid var(--champagne);padding:11px 15px;border-radius:3px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);color:var(--navy-deep);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;transform:rotate(-2.5deg)}
+
+    /* Sections */
+    section{padding:84px 0}
+    h2{font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1.15;margin:0 0 6px}
+    .section-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+    .section-top p{max-width:560px;color:var(--text-soft);margin:0}
+
+    /* Course cards */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .card{background:var(--bg-raised);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+    .card:hover{border-color:var(--border-hover);box-shadow:0 18px 40px -26px rgba(23,40,63,.45)}
+    .shot{position:relative;margin:0;border-bottom:3px solid var(--champagne);background:var(--bg-panel);overflow:hidden}
+    .shot.two{border-bottom-color:var(--gold)}
+    .shot img{width:100%;height:auto;aspect-ratio:960/412;object-fit:cover;transition:transform .35s ease}
+    .card:hover .shot img{transform:scale(1.02)}
+    .card-kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--gold);margin:0 0 12px}
+    .card-content{padding:28px;display:flex;flex:1;flex-direction:column}
+    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+    .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;padding:4px 9px;border-radius:3px;background:var(--bg-main);border:1px solid var(--border);color:var(--text-soft)}
+    .tag.path{background:var(--navy);border-color:var(--navy);color:var(--warm-white)}
+    .card-content h4{font-size:1.32rem;line-height:1.25;margin:0 0 8px}
+    .card-content p{margin:0 0 14px;color:var(--text-soft)}
+    .card-content dl{border-top:1px solid var(--border);padding-top:16px;margin:8px 0 24px}
+    .card-content dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+    .card-content dd{margin:4px 0 14px;color:var(--text-soft);font-size:.92rem}
+    .card-content .btn{margin-top:auto;align-self:flex-start}
+
+    /* Bridge */
+    .bridge{background:var(--bg-raised);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .bridge-grid{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:48px}
+    .bridge p{color:var(--text-soft);max-width:660px}
+    .bridge-box{padding:28px;border-radius:4px;background:var(--navy-deep);color:var(--warm-white);border-top:3px solid var(--champagne)}
+    .bridge-box .eyebrow{color:var(--champagne)}
+    .bridge-box h3{color:var(--warm-white);font-size:1.6rem;line-height:1.2;margin:4px 0 12px}
+    .bridge-box p{color:rgba(255,253,248,.78);font-size:.95rem}
+    .bridge-box a{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--champagne);text-decoration:none}
+    .bridge-box a:hover{text-decoration:underline}
+
+    /* Approach */
+    .approach{background:var(--bg-panel)}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .mini{background:var(--bg-raised);border:1px solid var(--border);border-top:3px solid var(--navy);border-radius:4px;padding:24px}
+    .mini .num{font-family:var(--mono);color:var(--gold);font-size:.85rem;letter-spacing:.1em}
+    .mini h3{margin:10px 0 8px;font-size:1.3rem}
+    .mini p{margin:0;color:var(--text-soft);font-size:.94rem}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:280px 1fr .75fr;gap:44px;align-items:start}
+    .portrait{border:1px solid rgba(200,169,107,.62);border-radius:5px;padding:8px;background:var(--bg-raised);box-shadow:0 24px 50px -30px rgba(23,40,63,.55)}
+    .portrait img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:3px;background:var(--navy-mid,#233B5D)}
+    .about p{font-size:1.02rem;color:var(--text-soft);max-width:640px}
+    .note{padding:24px;background:var(--bg-raised);border:1px solid var(--border);border-left:4px solid var(--champagne);border-radius:4px}
+    .note h3{margin:0 0 10px;font-size:1.25rem}
+    .note p{margin:0;font-size:.9rem;color:var(--text-soft)}
+
+    /* Contact + footer */
+    .contact{padding:72px 0;background:var(--navy-deep);color:var(--warm-white)}
+    .contact .eyebrow{color:var(--champagne)}
+    .contact h2{color:var(--warm-white)}
+    .contact p{color:rgba(255,253,248,.78);max-width:620px}
+    .contact .btn{background:var(--champagne);border-color:var(--champagne);color:var(--navy-deep)}
+    .contact .btn:hover{background:#E5D5B2;border-color:#E5D5B2}
+    .contact .btn.ghost{background:transparent;color:var(--warm-white);border-color:rgba(229,213,178,.7)}
+    .contact .btn.ghost:hover{background:var(--champagne);color:var(--navy-deep)}
+    footer{padding:26px 0;background:var(--bg-main);border-top:1px solid var(--border);font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--text-muted)}
+    .foot-flex{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    footer a{color:var(--text-soft);text-decoration:none}footer a:hover{color:var(--navy);text-decoration:underline}
+
+    @media(max-width:960px){.about-grid{grid-template-columns:240px 1fr}.about-grid .note{grid-column:1 / -1}}
+    @media(max-width:800px){.container{width:calc(100% - 44px)}.hero{padding:62px 0}.hero-grid,.projects,.bridge-grid{grid-template-columns:1fr}.hero-art{min-height:300px;max-width:540px}.three{grid-template-columns:1fr}.section-top{display:block}.section-top p{margin-top:10px}.mock{inset:15px 30px 0 15px}.float{left:0}header .nav{align-items:flex-start;flex-direction:column;gap:10px}.about-grid{grid-template-columns:1fr}.portrait{max-width:260px}}
+    @media(max-width:460px){.hero-art{min-height:290px}.mock{padding:12px}.mock-body{grid-template-columns:60px 1fr}.tiles{gap:5px}.tile{padding:5px}.tile small{font-size:.42rem}.tile b{font-size:1rem}nav{gap:14px}.brand{font-size:12px}.brand img{height:28px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card,.shot img{transition:none}}
+  </style>
+  <style>
+    /* Case-study specific */
+    .cs-hero{padding:72px 0 64px}
+    .cs-hero .back{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--champagne);text-decoration:none;margin-bottom:26px}
+    .cs-hero .back:hover{text-decoration:underline}
+    .cs-hero h1{font-size:clamp(2.2rem,4.6vw,3.7rem);max-width:900px}
+    .cs-hero p{max-width:720px}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid rgba(229,213,178,.35)}
+    .facts div{padding:18px 18px 0 0}
+    .facts dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--champagne)}
+    .facts dd{margin:6px 0 0;color:rgba(255,253,248,.86);font-size:.95rem}
+    .narrow{max-width:760px}
+    .lead{font-size:1.1rem;color:var(--text-soft)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .objectives{list-style:none;padding:0;margin:18px 0 0;counter-reset:o}
+    .objectives li{counter-increment:o;position:relative;padding:14px 0 14px 46px;border-bottom:1px solid var(--border);color:var(--text-soft)}
+    .objectives li:before{content:counter(o,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:var(--mono);color:var(--gold);font-size:.85rem}
+    .video-wrap{margin:30px 0 0;background:var(--navy-deep);border:1px solid var(--border);border-bottom:3px solid var(--champagne);border-radius:4px;overflow:hidden}
+    .video-wrap video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+    .video-cap{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--text-muted);margin-top:10px}
+    .lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .lesson{background:var(--bg-raised);border:1px solid var(--border);border-top:3px solid var(--navy);border-radius:4px;padding:24px}
+    .lesson .num{font-family:var(--mono);color:var(--gold);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+    .lesson h3{margin:8px 0 10px;font-size:1.3rem}
+    .lesson ul{margin:0;padding-left:18px;color:var(--text-soft);font-size:.94rem}
+    .lesson li{margin:4px 0}
+    .decisions{display:grid;gap:0;margin-top:26px;border-top:1px solid var(--border)}
+    .decision{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--border)}
+    .decision h3{font-size:1.25rem;line-height:1.3}
+    .decision p{margin:0;color:var(--text-soft)}
+    .decision .why{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+    /* Static previews of activities */
+    .preview{background:var(--bg-raised);border:1px solid var(--border);border-radius:4px;padding:24px}
+    .preview .label{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+    .pair{display:grid;grid-template-columns:1fr 24px 1fr;gap:10px;align-items:center;margin:0 0 10px}
+    .pair span{padding:10px 12px;border-radius:3px;font-size:.88rem;line-height:1.35}
+    .pair .feat{background:var(--navy);color:var(--warm-white)}
+    .pair .val{background:var(--bg-main);border:1px solid var(--border);color:var(--text-main)}
+    .pair i{font-style:normal;text-align:center;color:var(--gold)}
+    .q{font-family:var(--display);font-size:1.15rem;line-height:1.35;margin:0 0 14px}
+    .opt{display:flex;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:3px;margin:0 0 8px;font-size:.9rem;color:var(--text-soft);background:var(--bg-main)}
+    .opt b{font-family:var(--mono);font-weight:500;font-size:.72rem;color:var(--text-muted);padding-top:2px}
+    .opt.right{border-color:var(--navy);background:#fff;color:var(--text-main)}
+    .opt.right b{color:var(--navy)}
+    .opt small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+    .measure{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .measure .mini{border-top-color:var(--champagne)}
+    .disclaimer{font-size:.9rem;color:var(--text-muted);margin-top:22px}
+    @media(max-width:800px){.facts{grid-template-columns:1fr 1fr}.split,.lessons,.measure,.decision{grid-template-columns:1fr}.decision{gap:8px}}
+    @media(max-width:460px){.facts{grid-template-columns:1fr}.pair{grid-template-columns:1fr;gap:4px}.pair i{transform:rotate(90deg)}}
+    .email{background:#fff;border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:3px;padding:14px 16px;margin:0 0 14px;font-size:.9rem;color:var(--text-main)}
+    .email p{margin:0 0 4px}.email span{display:inline-block;min-width:62px;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+    .email .body{margin-top:10px;padding-top:10px;border-top:1px solid var(--bg-panel);line-height:1.5}
+    .email .note-line{margin-top:10px;font-size:.82rem;color:var(--text-muted);font-style:italic}
+    .objectives li strong{color:var(--text-main);font-weight:500}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="container nav"><a class="brand" href="../"><img src="https://andreadavisbaptiste82-creator.github.io/assets/adb-logo.png" alt="" />Andrea Davis-Baptiste <span>/ Learning Design</span></a><nav aria-label="Primary"><a href="../#projects">Projects</a><a href="../#approach">Approach</a><a href="../#about">About</a><a href="https://andreadavisbaptiste82-creator.github.io/contact.html">Contact</a><a class="main-link" href="https://andreadavisbaptiste82-creator.github.io/" aria-label="Visit Andrea Davis-Baptiste's main portfolio">Main Portfolio ↗</a></nav></div></header>
+
+<main id="main">
+  <div class="hero cs-hero" id="top"><div class="container">
+    <a class="back" href="../#projects">← All learning experiences</a>
+    <div class="eyebrow">Course 04 · Case study · Legal technology</div>
+    <h1>E-Discovery Essentials: <em>your first review decision.</em></h1>
+    <p>A five-minute microlearning lesson for people new to document review. Learners apply written review instructions to realistic emails, learn that relevance is not the same as proof of wrongdoing, and practice flagging a document for guidance instead of guessing.</p>
+    <div class="actions"><a class="btn" href="#activity">See the review activity ↓</a></div>
+    <dl class="facts">
+      <div><dt>Audience</dt><dd>New document reviewers and new hires on legal or review teams</dd></div>
+      <div><dt>Format</dt><dd>One 5-minute microlesson, two decisions</dd></div>
+      <div><dt>Tools</dt><dd>Articulate Rise 360</dd></div>
+      <div><dt>My role</dt><dd>Sole designer and developer</dd></div>
+    </dl>
+  </div></div>
+
+  <section><div class="container split">
+    <div>
+      <div class="eyebrow">The performance problem</div>
+      <h2>New reviewers confuse "relevant" with "proves something" and guess when unsure.</h2>
+    </div>
+    <div>
+      <p class="lead">In document review, a reviewer applies written instructions to decide whether each document relates to the matter. Two early mistakes are common: treating relevance as if it meant proof of wrongdoing, and making a confident call on a document the instructions don't clearly cover.</p>
+      <p class="lead">Both lead to inconsistent coding that someone has to find and fix later. The lesson targets the judgment call itself, not the software.</p>
+    </div>
+  </div></section>
+
+  <section class="approach"><div class="container split">
+    <div>
+      <div class="eyebrow">Learning objectives</div>
+      <h2>What learners should be able to do</h2>
+      <ol class="objectives">
+        <li>Describe e-discovery and where document review fits in it.</li>
+        <li>Apply written review instructions to classify a document as Relevant or Not relevant, based on content and context rather than a matching keyword.</li>
+        <li>Recognize when the instructions don't clearly apply, and flag the document for guidance instead of guessing.</li>
+      </ol>
+    </div>
+    <div>
+      <div class="eyebrow">Course flow</div>
+      <h2>Five minutes, two decisions</h2>
+      <ol class="objectives">
+        <li><strong>Hook:</strong> "Can you identify a relevant message, and recognize when you need guidance?"</li>
+        <li><strong>Context:</strong> what e-discovery is, and what review means.</li>
+        <li><strong>Assignment:</strong> a fictional investigation with written review instructions.</li>
+        <li><strong>Decision 1:</strong> a clearly relevant email, followed by the takeaway "relevance does not mean wrongdoing."</li>
+        <li><strong>Decision 2:</strong> an ambiguous email, where the right move is to flag it.</li>
+        <li><strong>Job aid:</strong> a three-step process to use before classifying any document.</li>
+      </ol>
+    </div>
+  </div></section>
+
+  <section id="activity"><div class="container">
+    <div class="eyebrow">Inside the activity</div>
+    <h2>The review assignment</h2>
+    <div class="split" style="margin-top:26px">
+      <div class="preview">
+        <p class="label">Fictional practice scenario</p>
+        <p style="margin:0 0 14px;color:var(--text-soft)">A company is investigating whether employees shared confidential Project Cedar pricing with an outside vendor during September 2026.</p>
+        <p class="label" style="margin-top:18px">Review instructions</p>
+        <div class="opt"><b>R</b><span>Mark <strong>Relevant</strong> if it discusses sharing Project Cedar pricing with an outside vendor during September 2026, even if it does not prove wrongdoing.</span></div>
+        <div class="opt"><b>N</b><span>Mark <strong>Not relevant</strong> if it clearly concerns an unrelated topic.</span></div>
+        <div class="opt"><b>F</b><span><strong>Flag for guidance</strong> if you cannot confidently apply these instructions.</span></div>
+      </div>
+      <div class="preview">
+        <p class="label">Decision 1 · Review this email</p>
+        <div class="email">
+          <p><span>From</span> Morgan Lee, Account Manager</p>
+          <p><span>To</span> Taylor Reed, Sales Operations</p>
+          <p><span>Date</span> September 14, 2026</p>
+          <p><span>Subject</span> Project Cedar pricing request</p>
+          <p class="body">Taylor, our outside vendor, Northstar Supply, requested the confidential Project Cedar pricing spreadsheet. Before I send anything, can you confirm whether we have approval to share it? Morgan</p>
+        </div>
+        <div class="opt right"><b>✓</b><span>Relevant<small>It discusses sharing Cedar pricing with a vendor in September. Asking permission doesn't make it irrelevant.</small></span></div>
+      </div>
+    </div>
+    <div class="split" style="margin-top:26px">
+      <div class="preview">
+        <p class="label">Decision 2 · What if the details are unclear?</p>
+        <div class="email">
+          <p><span>Date</span> September 21, 2026</p>
+          <p><span>Subject</span> Follow-up</p>
+          <p class="body">"Did you send those numbers to our contact? Please confirm before tomorrow's meeting."</p>
+          <p class="note-line">No earlier messages or attachments. No project, no definition of "numbers," no named contact.</p>
+        </div>
+        <div class="opt right"><b>✓</b><span>Flag for guidance<small>Not enough context to call it relevant or unrelated, so don't assume.</small></span></div>
+      </div>
+      <div class="preview">
+        <p class="label">Job aid · Before you classify a document</p>
+        <ol class="objectives" style="margin-top:0">
+          <li><strong>Check the instructions.</strong> Identify the topic, people, and dates in scope.</li>
+          <li><strong>Read for context.</strong> A matching keyword alone doesn't establish relevance, and a relevant document doesn't necessarily prove wrongdoing.</li>
+          <li><strong>Make a supported decision.</strong> Choose Relevant or Not relevant when the context supports it. Flag for guidance when you can't confidently apply the instructions.</li>
+        </ol>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="bridge"><div class="container">
+    <div class="eyebrow">Key design decisions</div>
+    <h2>Why it's built this way</h2>
+    <div class="decisions">
+      <div class="decision"><h3>Five minutes, one skill</h3><p><span class="why">Why</span>New reviewers are often onboarded quickly and under deadline. One short lesson that practices one core judgment fits into a ramp-up plan and can be repeated or spaced, rather than competing with a long platform course.</p></div>
+      <div class="decision"><h3>The first email targets a misconception</h3><p><span class="why">Why</span>The email asks for permission and nothing has been sent, so it feels "innocent." A learner who equates relevance with wrongdoing marks it Not relevant. The feedback names that mistake directly: relevance and proof of wrongdoing are different judgments.</p></div>
+      <div class="decision"><h3>"Flag for guidance" is a correct answer, not a cop-out</h3><p><span class="why">Why</span>Reliable review depends on knowing the limits of the instructions. Making escalation a graded, correct answer in Decision 2 teaches that asking is part of doing the job well, not a failure.</p></div>
+      <div class="decision"><h3>Content and context over keywords</h3><p><span class="why">Why</span>The ambiguous email contains none of the scope terms but might still matter, and a keyword match alone wouldn't settle the first one either. Learners practice reading for meaning, which still matters when search or AI tools surface the documents.</p></div>
+      <div class="decision"><h3>Fictional, but realistic</h3><p><span class="why">Why</span>A made-up company, project, and people keep the practice free of real client data while preserving the details a reviewer actually weighs: sender, recipient, date, subject, and what's missing.</p></div>
+    </div>
+  </div></section>
+
+  <section class="approach"><div class="container">
+    <div class="eyebrow">Measuring impact</div>
+    <h2>How I would evaluate it in a real rollout</h2>
+    <div class="measure">
+      <div class="mini"><div class="num">Learning</div><h3>Decision accuracy</h3><p>Results on each decision, especially how many learners mark the first email Not relevant, which shows how common the misconception is.</p></div>
+      <div class="mini"><div class="num">Behavior</div><h3>Healthy flag rate</h3><p>On a new reviewer's first assignment, track flags for guidance: too few suggests guessing, too many suggests the instructions or training need work.</p></div>
+      <div class="mini"><div class="num">Results</div><h3>QC overturns</h3><p>Compare the rate at which quality-control reviewers overturn new reviewers' relevance calls, before and after the lesson.</p></div>
+    </div>
+    <p class="disclaimer">This is an independent portfolio demonstration, not work commissioned by a client. All people, companies, and emails are fictional. The interactive version was built in Rise 360 on a trial license and isn't hosted here, so this page walks through its design and content. The evaluation plan is proposed, not reported results.</p>
+  </div></section>
+
+  <div class="contact"><div class="container"><div class="eyebrow">Let's connect</div><h2>Building learning that changes performance?</h2><p>Explore the other courses, then let's talk about what your teams need to do differently and how learning can get them there.</p><div class="actions"><a class="btn" href="../#projects">See all courses</a><a class="btn ghost" href="https://andreadavisbaptiste82-creator.github.io/contact.html">Start a conversation ↗</a></div></div></div>
+</main>
+<footer><div class="container foot-flex"><span>© 2026 Andrea Davis-Baptiste · Enterprise Learning &amp; Workforce Enablement Leader</span><span><a href="https://andreadavisbaptiste82-creator.github.io/">Main portfolio</a> · <a href="mailto:andreadavisbaptiste82@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/andrea-davis-baptiste" target="_blank" rel="noopener noreferrer">LinkedIn</a></span></div></footer>
+</body>
+</html>
