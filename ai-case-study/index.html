@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explaining AI With Confidence | Case Study | Andrea Davis-Baptiste</title>
+  <meta name="description" content="Case study: a Rise 360 learning experience that helps customer-facing teams turn AI features into customer value while setting realistic expectations." />
+  <link rel="canonical" href="https://andreadavisbaptiste82-creator.github.io/learning-design-portfolio/ai-case-study/" />
+  <link rel="icon" type="image/png" href="https://andreadavisbaptiste82-creator.github.io/assets/Andrea_Headshot_Favicon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Explaining AI With Confidence | Learning Design Case Study" />
+  <meta property="og:description" content="How I designed a short Rise 360 experience that helps customer-facing teams explain AI value honestly." />
+  <meta property="og:url" content="https://andreadavisbaptiste82-creator.github.io/learning-design-portfolio/ai-case-study/" />
+  <meta property="og:image" content="https://andreadavisbaptiste82-creator.github.io/learning-design-portfolio/ai-case-study/assets/video-poster.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* Colors and type match the main portfolio (andreadavisbaptiste82-creator.github.io) */
+    :root{
+      --bg-main:#F5F2EA; --bg-raised:#FFFDF8; --bg-panel:#EAE3D7;
+      --text-main:#1D2732; --text-soft:#55616D; --text-muted:#6E7780;
+      --border:#D2C8B7; --border-hover:#A99A83;
+      --navy:#233B5D; --navy-deep:#17283F; --slate:#526A89;
+      --gold:#9A743A; --champagne:#C8A96B; --champagne-dark:#8B672F; --warm-white:#FFFDF8;
+      --display:'Newsreader',Georgia,serif; --body:'IBM Plex Sans',-apple-system,"Segoe UI",sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg-main);color:var(--text-main);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--navy-deep);outline-offset:3px}
+    .container{width:min(1160px,calc(100% - 80px));margin:auto}
+    .skip{position:fixed;top:10px;left:12px;z-index:100;transform:translateY(-160%);padding:10px 14px;border:1px solid var(--navy);border-radius:4px;background:var(--bg-main);font-family:var(--mono);font-size:12px}.skip:focus{transform:none}
+    h1,h2,h3,h4{font-family:var(--display);font-weight:500;letter-spacing:-.01em;color:var(--text-main);margin:0}
+    .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0 0 14px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.96);border-bottom:1px solid var(--border);box-shadow:0 8px 28px rgba(23,40,63,.06)}
+    header .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--text-main)}
+    .brand img{height:36px;width:auto}.brand span{color:var(--gold)}
+    nav{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+    nav a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--text-soft)}
+    nav a:hover{color:var(--navy)}
+    nav a.main-link{background:var(--navy);color:var(--warm-white);padding:9px 14px;border-radius:3px}nav a.main-link:hover{background:var(--navy-deep)}
+
+    /* Buttons */
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:12px 20px;border-radius:3px;background:var(--navy);color:var(--warm-white);border:1px solid var(--navy);transition:background .2s,color .2s,border-color .2s}
+    .btn:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+    .btn.ghost{background:transparent;color:var(--text-main);border-color:var(--border-hover)}
+    .btn.ghost:hover{background:var(--navy);color:var(--warm-white);border-color:var(--navy)}
+
+    /* Hero (dark navy, champagne accents — same treatment as main site) */
+    .hero{background:var(--navy-deep);color:var(--warm-white);padding:88px 0 80px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+    .hero .eyebrow{color:var(--champagne)}
+    .hero h1{color:var(--warm-white);font-size:clamp(2.5rem,5.4vw,4.4rem);line-height:1.08;margin:6px 0 22px}
+    .hero h1 em{font-style:italic;color:var(--champagne)}
+    .hero p{font-size:1.08rem;color:rgba(255,253,248,.78);max-width:620px;margin:0}
+    .hero .btn{background:var(--champagne);border-color:var(--champagne);color:var(--navy-deep)}
+    .hero .btn:hover{background:#E5D5B2;border-color:#E5D5B2}
+    .hero .btn.ghost{background:rgba(255,253,248,.06);color:var(--warm-white);border-color:rgba(229,213,178,.7)}
+    .hero .btn.ghost:hover{background:var(--champagne);color:var(--navy-deep);border-color:var(--champagne)}
+    .hero-art{position:relative;min-height:340px}
+    .mock{position:absolute;inset:20px 8px 15px 8px;background:var(--bg-raised);border:1px solid rgba(200,169,107,.62);border-radius:5px;padding:18px;transform:rotate(2.5deg);box-shadow:0 24px 50px -24px rgba(0,0,0,.65)}
+    .mock-top{background:var(--navy);border-radius:3px;color:var(--warm-white);padding:13px 15px;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}
+    .mock-body{display:grid;grid-template-columns:96px 1fr;gap:13px;padding:18px 0 0}
+    .mock-side{background:var(--bg-panel);border-radius:3px;padding:14px 8px}
+    .bar{height:8px;border-radius:20px;background:var(--border);margin:11px 0}.bar.short{width:65%}.bar.active{background:var(--champagne)}
+    .mock-main{display:flex;flex-direction:column;gap:13px}
+    .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+    .tile{border-radius:3px;background:var(--bg-main);border:1px solid var(--border);padding:11px 9px}
+    .tile b{font-family:var(--display);font-weight:500;font-size:1.45rem;display:block;color:var(--navy);line-height:1.1}
+    .tile small{font-family:var(--mono);font-size:.56rem;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted)}
+    .rows{border-radius:3px;border:1px solid var(--border);padding:8px 12px}
+    .task{height:27px;border-bottom:1px solid var(--bg-panel);display:flex;align-items:center;justify-content:space-between;gap:9px}.task:last-child{border-bottom:0}
+    .task:before{content:"";height:7px;background:#CFC4B1;width:53%;border-radius:8px}.task:after{content:"";height:14px;background:#EFE6D3;width:23%;border-radius:20px}
+    .float{position:absolute;left:-22px;bottom:6px;background:var(--bg-raised);border:1px solid var(--champagne);border-left:4px solid var(--champagne);padding:11px 15px;border-radius:3px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);color:var(--navy-deep);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;transform:rotate(-2.5deg)}
+
+    /* Sections */
+    section{padding:84px 0}
+    h2{font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1.15;margin:0 0 6px}
+    .section-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+    .section-top p{max-width:560px;color:var(--text-soft);margin:0}
+
+    /* Course cards */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .card{background:var(--bg-raised);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+    .card:hover{border-color:var(--border-hover);box-shadow:0 18px 40px -26px rgba(23,40,63,.45)}
+    .shot{position:relative;margin:0;border-bottom:3px solid var(--champagne);background:var(--bg-panel);overflow:hidden}
+    .shot.two{border-bottom-color:var(--gold)}
+    .shot img{width:100%;height:auto;aspect-ratio:960/412;object-fit:cover;transition:transform .35s ease}
+    .card:hover .shot img{transform:scale(1.02)}
+    .card-kicker{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--gold);margin:0 0 12px}
+    .card-content{padding:28px;display:flex;flex:1;flex-direction:column}
+    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+    .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;padding:4px 9px;border-radius:3px;background:var(--bg-main);border:1px solid var(--border);color:var(--text-soft)}
+    .tag.path{background:var(--navy);border-color:var(--navy);color:var(--warm-white)}
+    .card-content h4{font-size:1.32rem;line-height:1.25;margin:0 0 8px}
+    .card-content p{margin:0 0 14px;color:var(--text-soft)}
+    .card-content dl{border-top:1px solid var(--border);padding-top:16px;margin:8px 0 24px}
+    .card-content dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+    .card-content dd{margin:4px 0 14px;color:var(--text-soft);font-size:.92rem}
+    .card-content .btn{margin-top:auto;align-self:flex-start}
+
+    /* Bridge */
+    .bridge{background:var(--bg-raised);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .bridge-grid{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:48px}
+    .bridge p{color:var(--text-soft);max-width:660px}
+    .bridge-box{padding:28px;border-radius:4px;background:var(--navy-deep);color:var(--warm-white);border-top:3px solid var(--champagne)}
+    .bridge-box .eyebrow{color:var(--champagne)}
+    .bridge-box h3{color:var(--warm-white);font-size:1.6rem;line-height:1.2;margin:4px 0 12px}
+    .bridge-box p{color:rgba(255,253,248,.78);font-size:.95rem}
+    .bridge-box a{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--champagne);text-decoration:none}
+    .bridge-box a:hover{text-decoration:underline}
+
+    /* Approach */
+    .approach{background:var(--bg-panel)}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .mini{background:var(--bg-raised);border:1px solid var(--border);border-top:3px solid var(--navy);border-radius:4px;padding:24px}
+    .mini .num{font-family:var(--mono);color:var(--gold);font-size:.85rem;letter-spacing:.1em}
+    .mini h3{margin:10px 0 8px;font-size:1.3rem}
+    .mini p{margin:0;color:var(--text-soft);font-size:.94rem}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:280px 1fr .75fr;gap:44px;align-items:start}
+    .portrait{border:1px solid rgba(200,169,107,.62);border-radius:5px;padding:8px;background:var(--bg-raised);box-shadow:0 24px 50px -30px rgba(23,40,63,.55)}
+    .portrait img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:3px;background:var(--navy-mid,#233B5D)}
+    .about p{font-size:1.02rem;color:var(--text-soft);max-width:640px}
+    .note{padding:24px;background:var(--bg-raised);border:1px solid var(--border);border-left:4px solid var(--champagne);border-radius:4px}
+    .note h3{margin:0 0 10px;font-size:1.25rem}
+    .note p{margin:0;font-size:.9rem;color:var(--text-soft)}
+
+    /* Contact + footer */
+    .contact{padding:72px 0;background:var(--navy-deep);color:var(--warm-white)}
+    .contact .eyebrow{color:var(--champagne)}
+    .contact h2{color:var(--warm-white)}
+    .contact p{color:rgba(255,253,248,.78);max-width:620px}
+    .contact .btn{background:var(--champagne);border-color:var(--champagne);color:var(--navy-deep)}
+    .contact .btn:hover{background:#E5D5B2;border-color:#E5D5B2}
+    .contact .btn.ghost{background:transparent;color:var(--warm-white);border-color:rgba(229,213,178,.7)}
+    .contact .btn.ghost:hover{background:var(--champagne);color:var(--navy-deep)}
+    footer{padding:26px 0;background:var(--bg-main);border-top:1px solid var(--border);font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--text-muted)}
+    .foot-flex{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    footer a{color:var(--text-soft);text-decoration:none}footer a:hover{color:var(--navy);text-decoration:underline}
+
+    @media(max-width:960px){.about-grid{grid-template-columns:240px 1fr}.about-grid .note{grid-column:1 / -1}}
+    @media(max-width:800px){.container{width:calc(100% - 44px)}.hero{padding:62px 0}.hero-grid,.projects,.bridge-grid{grid-template-columns:1fr}.hero-art{min-height:300px;max-width:540px}.three{grid-template-columns:1fr}.section-top{display:block}.section-top p{margin-top:10px}.mock{inset:15px 30px 0 15px}.float{left:0}header .nav{align-items:flex-start;flex-direction:column;gap:10px}.about-grid{grid-template-columns:1fr}.portrait{max-width:260px}}
+    @media(max-width:460px){.hero-art{min-height:290px}.mock{padding:12px}.mock-body{grid-template-columns:60px 1fr}.tiles{gap:5px}.tile{padding:5px}.tile small{font-size:.42rem}.tile b{font-size:1rem}nav{gap:14px}.brand{font-size:12px}.brand img{height:28px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card,.shot img{transition:none}}
+  </style>
+  <style>
+    /* Case-study specific */
+    .cs-hero{padding:72px 0 64px}
+    .cs-hero .back{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--champagne);text-decoration:none;margin-bottom:26px}
+    .cs-hero .back:hover{text-decoration:underline}
+    .cs-hero h1{font-size:clamp(2.2rem,4.6vw,3.7rem);max-width:900px}
+    .cs-hero p{max-width:720px}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid rgba(229,213,178,.35)}
+    .facts div{padding:18px 18px 0 0}
+    .facts dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--champagne)}
+    .facts dd{margin:6px 0 0;color:rgba(255,253,248,.86);font-size:.95rem}
+    .narrow{max-width:760px}
+    .lead{font-size:1.1rem;color:var(--text-soft)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .objectives{list-style:none;padding:0;margin:18px 0 0;counter-reset:o}
+    .objectives li{counter-increment:o;position:relative;padding:14px 0 14px 46px;border-bottom:1px solid var(--border);color:var(--text-soft)}
+    .objectives li:before{content:counter(o,decimal-leading-zero);position:absolute;left:0;top:14px;font-family:var(--mono);color:var(--gold);font-size:.85rem}
+    .video-wrap{margin:30px 0 0;background:var(--navy-deep);border:1px solid var(--border);border-bottom:3px solid var(--champagne);border-radius:4px;overflow:hidden}
+    .video-wrap video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+    .video-cap{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--text-muted);margin-top:10px}
+    .lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .lesson{background:var(--bg-raised);border:1px solid var(--border);border-top:3px solid var(--navy);border-radius:4px;padding:24px}
+    .lesson .num{font-family:var(--mono);color:var(--gold);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+    .lesson h3{margin:8px 0 10px;font-size:1.3rem}
+    .lesson ul{margin:0;padding-left:18px;color:var(--text-soft);font-size:.94rem}
+    .lesson li{margin:4px 0}
+    .decisions{display:grid;gap:0;margin-top:26px;border-top:1px solid var(--border)}
+    .decision{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--border)}
+    .decision h3{font-size:1.25rem;line-height:1.3}
+    .decision p{margin:0;color:var(--text-soft)}
+    .decision .why{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+    /* Static previews of activities */
+    .preview{background:var(--bg-raised);border:1px solid var(--border);border-radius:4px;padding:24px}
+    .preview .label{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+    .pair{display:grid;grid-template-columns:1fr 24px 1fr;gap:10px;align-items:center;margin:0 0 10px}
+    .pair span{padding:10px 12px;border-radius:3px;font-size:.88rem;line-height:1.35}
+    .pair .feat{background:var(--navy);color:var(--warm-white)}
+    .pair .val{background:var(--bg-main);border:1px solid var(--border);color:var(--text-main)}
+    .pair i{font-style:normal;text-align:center;color:var(--gold)}
+    .q{font-family:var(--display);font-size:1.15rem;line-height:1.35;margin:0 0 14px}
+    .opt{display:flex;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:3px;margin:0 0 8px;font-size:.9rem;color:var(--text-soft);background:var(--bg-main)}
+    .opt b{font-family:var(--mono);font-weight:500;font-size:.72rem;color:var(--text-muted);padding-top:2px}
+    .opt.right{border-color:var(--navy);background:#fff;color:var(--text-main)}
+    .opt.right b{color:var(--navy)}
+    .opt small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+    .measure{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .measure .mini{border-top-color:var(--champagne)}
+    .disclaimer{font-size:.9rem;color:var(--text-muted);margin-top:22px}
+    @media(max-width:800px){.facts{grid-template-columns:1fr 1fr}.split,.lessons,.measure,.decision{grid-template-columns:1fr}.decision{gap:8px}}
+    @media(max-width:460px){.facts{grid-template-columns:1fr}.pair{grid-template-columns:1fr;gap:4px}.pair i{transform:rotate(90deg)}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="container nav"><a class="brand" href="../"><img src="https://andreadavisbaptiste82-creator.github.io/assets/adb-logo.png" alt="" />Andrea Davis-Baptiste <span>/ Learning Design</span></a><nav aria-label="Primary"><a href="../#projects">Projects</a><a href="../#approach">Approach</a><a href="../#about">About</a><a href="https://andreadavisbaptiste82-creator.github.io/contact.html">Contact</a><a class="main-link" href="https://andreadavisbaptiste82-creator.github.io/" aria-label="Visit Andrea Davis-Baptiste's main portfolio">Main Portfolio ↗</a></nav></div></header>
+
+<main id="main">
+  <div class="hero cs-hero" id="top"><div class="container">
+    <a class="back" href="../#projects">← All learning experiences</a>
+    <div class="eyebrow">Course 03 · Case study · AI customer enablement</div>
+    <h1>Explaining AI With Confidence: <em>turning technical features into customer value.</em></h1>
+    <p>A short Rise 360 learning experience for customer-facing teams. It helps them connect an AI feature to what a customer actually needs, be honest about what the tool can't do, and keep human review in the conversation.</p>
+    <div class="actions"><a class="btn" href="#video">Watch the course intro ↓</a><a class="btn ghost" href="https://share.articulate.com/h6P9coQutF__NES-AxCli" target="_blank" rel="noopener noreferrer">Try the interactive course ↗</a></div>
+    <dl class="facts">
+      <div><dt>Audience</dt><dd>Sales, account, and customer success teams</dd></div>
+      <div><dt>Format</dt><dd>Self-paced, 3 short lessons</dd></div>
+      <div><dt>Tools</dt><dd>Articulate Rise 360, HeyGen, WebVTT captions</dd></div>
+      <div><dt>My role</dt><dd>Sole designer and developer</dd></div>
+    </dl>
+  </div></div>
+
+  <section><div class="container split">
+    <div>
+      <div class="eyebrow">The performance problem</div>
+      <h2>Customers ask about AI. Reps either oversell or overexplain.</h2>
+    </div>
+    <div>
+      <p class="lead">When a customer asks whether an AI tool can be trusted, the two most common failures are opposite ones: promising more than the tool can deliver, or retreating into technical language that doesn't answer the question.</p>
+      <p class="lead">Both cost credibility. The goal was not to teach how AI works. It was to change what a rep says in the next customer conversation.</p>
+    </div>
+  </div></section>
+
+  <section class="approach"><div class="container split">
+    <div>
+      <div class="eyebrow">Learning objectives</div>
+      <h2>What learners should be able to do</h2>
+      <ol class="objectives">
+        <li>Connect a specific AI feature to a customer's stated goal, in plain language.</li>
+        <li>Explain a relevant limitation and what a person needs to verify.</li>
+        <li>Confirm the tool's actual capability, data-use rules, and required review before promising a benefit.</li>
+      </ol>
+    </div>
+    <div id="video">
+      <div class="eyebrow">Course intro</div>
+      <h2>Setting the scenario</h2>
+      <div class="video-wrap">
+        <video controls preload="metadata" playsinline poster="assets/video-poster.jpg">
+          <source src="assets/explaining-ai-intro.mp4" type="video/mp4" />
+          <track kind="captions" src="assets/explaining-ai-intro.en.vtt" srclang="en" label="English" default />
+          Your browser can't play this video.
+        </video>
+      </div>
+      <p class="video-cap">AI-presenter video produced in HeyGen · about one minute · captions included</p>
+    </div>
+  </div></section>
+
+  <section><div class="container">
+    <div class="eyebrow">Course structure</div>
+    <h2>Three short lessons, built around practice</h2>
+    <div class="lessons">
+      <div class="lesson"><div class="num">Lesson 01</div><h3>Explain AI Value</h3><ul><li>Captioned scenario video</li><li>Spoken practice: explain a feature's value in two sentences, out loud</li><li>Expandable model answer to compare against</li></ul></div>
+      <div class="lesson"><div class="num">Lesson 02</div><h3>Connect Features to Customer Needs</h3><ul><li>Sorting activity: match each AI feature to its customer value</li><li>Knowledge check on relying on AI summaries</li></ul></div>
+      <div class="lesson"><div class="num">Lesson 03</div><h3>Respond With Confidence</h3><ul><li>Knowledge check on a "will it eliminate mistakes?" question</li><li>Select-all check: what to confirm before promising a benefit</li><li>Workplace takeaway for the next customer call</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="bridge"><div class="container">
+    <div class="eyebrow">Key design decisions</div>
+    <h2>Why it's built this way</h2>
+    <div class="decisions">
+      <div class="decision"><h3>Say it out loud before seeing the answer</h3><p><span class="why">Why</span>The real task is spoken, in a live conversation. Asking learners to rehearse aloud first, then reveal a model response, practices retrieval and the actual output, instead of recognizing a good answer someone else wrote.</p></div>
+      <div class="decision"><h3>Sort features into customer value</h3><p><span class="why">Why</span>The core skill is translation. Matching each feature (a first draft, plain-language search, a document summary) to the value a customer would feel makes that translation explicit and repeatable.</p></div>
+      <div class="decision"><h3>Wrong answers that mirror real mistakes</h3><p><span class="why">Why</span>The single-answer questions each pair an honest, value-first answer with two distractors: an overpromise and a jargon answer. The distractors are the two failures from the performance problem, so choosing well is practice for the real conversation.</p></div>
+      <div class="decision"><h3>Responsible AI is part of the answer, not a separate module</h3><p><span class="why">Why</span>Limitations, data-use rules, and human review show up inside every model answer and every piece of feedback. Learners hear that being honest about limits is part of a credible pitch, not a disclaimer at the end.</p></div>
+      <div class="decision"><h3>Short, with a concrete next step</h3><p><span class="why">Why</span>Customer-facing teams have little time for training. Three focused lessons end with one action to try in the next customer call, so the learning has a clear path to the job.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="container">
+    <div class="eyebrow">Inside the activities</div>
+    <h2>A closer look</h2>
+    <div class="split" style="margin-top:26px">
+      <div class="preview">
+        <p class="label">Lesson 02 · Sorting activity</p>
+        <div class="pair"><span class="feat">Produces a first draft of a response</span><i aria-hidden="true">→</i><span class="val">Gives employees a starting point they can review and revise</span></div>
+        <div class="pair"><span class="feat">Searches documents using everyday language</span><i aria-hidden="true">→</i><span class="val">Helps employees locate relevant information with fewer manual searches</span></div>
+        <div class="pair"><span class="feat">Generates a document summary</span><i aria-hidden="true">→</i><span class="val">Helps reviewers identify key points before checking the original</span></div>
+      </div>
+      <div class="preview">
+        <p class="label">Lesson 03 · Knowledge check</p>
+        <p class="q">A customer asks, "Will this AI tool eliminate mistakes in our reports?" Which response is best?</p>
+        <div class="opt"><b>A</b><span>Yes. AI catches every mistake before a report is shared.<small>Overpromise</small></span></div>
+        <div class="opt right"><b>B</b><span>If the tool supports error checking, it may flag potential issues, but your team still needs to verify accuracy.<small>Best answer: value, limit, human review</small></span></div>
+        <div class="opt"><b>C</b><span>The tool uses advanced machine learning to analyze reports.<small>Jargon, doesn't answer the question</small></span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="approach"><div class="container">
+    <div class="eyebrow">Measuring impact</div>
+    <h2>How I would evaluate it in a real rollout</h2>
+    <div class="measure">
+      <div class="mini"><div class="num">Learning</div><h3>Scenario accuracy</h3><p>Knowledge-check results by question, to find which customer questions still trip people up.</p></div>
+      <div class="mini"><div class="num">Behavior</div><h3>Call observation</h3><p>A short manager rubric for live or recorded calls: names the customer's goal, states a limit, names what to verify.</p></div>
+      <div class="mini"><div class="num">Results</div><h3>Fewer walk-backs</h3><p>Track escalations and follow-ups caused by overpromised AI capabilities, before and after rollout.</p></div>
+    </div>
+    <p class="disclaimer">This is an independent portfolio demonstration, not work commissioned by a client. The evaluation plan above is proposed, not reported results.</p>
+  </div></section>
+
+  <div class="contact"><div class="container"><div class="eyebrow">Let's connect</div><h2>Building learning that changes performance?</h2><p>Explore the other courses, then let's talk about what your teams need to do differently and how learning can get them there.</p><div class="actions"><a class="btn" href="../#projects">See all courses</a><a class="btn ghost" href="https://andreadavisbaptiste82-creator.github.io/contact.html">Start a conversation ↗</a></div></div></div>
+</main>
+<footer><div class="container foot-flex"><span>© 2026 Andrea Davis-Baptiste · Enterprise Learning &amp; Workforce Enablement Leader</span><span><a href="https://andreadavisbaptiste82-creator.github.io/">Main portfolio</a> · <a href="mailto:andreadavisbaptiste82@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/andrea-davis-baptiste" target="_blank" rel="noopener noreferrer">LinkedIn</a></span></div></footer>
+</body>
+</html>
